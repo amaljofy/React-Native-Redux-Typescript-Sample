@@ -12,6 +12,7 @@ import { Dimensions } from "react-native";
 const { width } = Dimensions.get("window");
 
 import Blank from "../screeens/AppScreens/Blank";
+import NewsDetails from "../screeens/AppScreens/NewsDetails";
 import Screen_One from "../screeens/AppScreens/Screen_One";
 import Screen_Two from "../screeens/AppScreens/Screen_Two";
 import Web_Service from "../screeens/AppScreens/Web_Service";
@@ -68,7 +69,8 @@ const MainTabs = createBottomTabNavigator({
 const HomeStack = createStackNavigator(
   {
     MainTabs: { screen: MainTabs },
-    Blank: { screen: Blank }
+    Blank: { screen: Blank },
+    NewsDetails: { screen: NewsDetails},
   },
   {
     initialRouteName: "MainTabs",
