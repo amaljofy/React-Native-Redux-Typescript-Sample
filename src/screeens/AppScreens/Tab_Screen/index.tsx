@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { TouchableWithoutFeedback,View, FlatList, ActivityIndicator, Alert} from "react-native";
+import { TouchableWithoutFeedback,View, FlatList, ActivityIndicator, Alert } from "react-native";
 import { NavigationScreenProp, NavigationState } from "react-navigation";
 import { Header } from "../../../components";
 import { AvatarItem } from "../../../components";
+import NetInfo from "@react-native-community/netinfo";
 
 import styles from "./styles";
 
@@ -42,7 +43,13 @@ class Tab_Screen extends Component<Props, State> {
   componentDidMount() {
     const { fetchImageData } = this.props;
     const { page, limit } = this.state;
-    fetchImageData(page, limit);
+ 
+    NetInfo.fetch().then(state => {
+      console.log("Connection type", state.type);
+      console.log("Is connected?", state.isConnected);
+      if(state.isConnected) {fetchImageData(page, limit)} else Alert.alert("No Internet")
+    });
+    // fetchImageData(page, limit);
   }
 
   render() {
@@ -60,7 +67,7 @@ class Tab_Screen extends Component<Props, State> {
           renderItem={({ item }: itemProp) => {
             return (
               <TouchableWithoutFeedback 
-              onPress={ () => navigation.navigate('Blank')}>
+              onPress={ () => navigation.navigate('Blank',{dataJSON:item})}>
                 <AvatarItem avatar={item.download_url} title={item.author}></AvatarItem>
               </TouchableWithoutFeedback>
             );

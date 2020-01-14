@@ -3,6 +3,7 @@ import { colors } from "../../../constants";
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignSelf: 'center',
     backgroundColor: colors.containerBg
   },
   contentStyle: {
@@ -12,7 +13,10 @@ const styles = StyleSheet.create({
   },
   textStyle: {
     fontSize: 20,
-    fontWeight: "700"
+    alignSelf: 'center',
+    marginTop: 20,
+    marginBottom: 10,
+    fontWeight: "100"
   }
 });
 

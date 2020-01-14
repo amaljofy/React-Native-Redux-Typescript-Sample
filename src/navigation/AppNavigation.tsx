@@ -63,13 +63,6 @@ const MainTabs = createBottomTabNavigator({
       tabBarIcon: taxiIcon
     },
   },
-  Employee: {
-    screen: Employee_Screen,
-    navigationOptions: {
-      tabBarLabel: 'Employee',
-      tabBarIcon: homeIcon
-    },
-  },
 });
 
 const HomeStack = createStackNavigator(

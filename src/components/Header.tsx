@@ -7,6 +7,7 @@ interface Props {
   title: string;
   leftButtonPress?: () => void;
   rightButtonPress?: () => void;
+  backButtonPress?: () => void;
 }
 
 export class Header extends Component<Props, {}> {
@@ -23,11 +24,16 @@ export class Header extends Component<Props, {}> {
               onPress={leftButtonPress}>
                 <Icon name="ios-menu" size={24} />
               </TouchableOpacity>
-            ):null
-            
+            ):(
+              <TouchableOpacity 
+              style={styles.iconButton}
+              onPress={backButtonPress}>
+                <Icon name="ios-arrow-back" size={24} />
+              </TouchableOpacity>
+            )
           }
         </View>
-       
+
         <View style={styles.midContainer}>
           <Text style={styles.headerTitle}>{title}</Text>
         </View>
