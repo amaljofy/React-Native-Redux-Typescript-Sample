@@ -68,7 +68,7 @@ class Tab_Screen extends Component<Props, State> {
             return (
               <TouchableWithoutFeedback 
               onPress={ () => navigation.navigate('Blank',{dataJSON:item})}>
-                <AvatarItem avatar={item.download_url} title={item.author}></AvatarItem>
+                <AvatarItem avatar={item.download_url+".jpg"} title={item.author}></AvatarItem>
               </TouchableWithoutFeedback>
             );
           }}

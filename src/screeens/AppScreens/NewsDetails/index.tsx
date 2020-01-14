@@ -29,7 +29,7 @@ class NewsDetails extends Component<Props, State> {
           title={responseJson.creator.__text}
           backButtonPress={() => navigation.goBack()}
         />
-      <AvatarItem avatar={responseJson.title} title={responseJson.description}></AvatarItem>
+      <AvatarItem avatar={responseJson.image.loc.__text} title={responseJson.description}></AvatarItem>
     </View>
     );
   }

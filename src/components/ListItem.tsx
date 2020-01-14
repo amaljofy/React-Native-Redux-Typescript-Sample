@@ -5,7 +5,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   TouchableOpacityProps,
-  ImageBackground
+  Image
 } from "react-native";
 import { colors } from "../constants";
 
@@ -25,9 +25,9 @@ export class  ListItem extends Component<Props, {}> {
           <Text style={styles.ageStyle}>{age}</Text>
         </View>
         <View>
-        <ImageBackground
+        <Image
             source={{ uri: `${avatar}` }} style={styles.imageStyle}>
-          </ImageBackground>
+          </Image>
         </View>
       </TouchableOpacity>
     );
@@ -71,5 +71,6 @@ const styles = StyleSheet.create({
   imageStyle: {
     width: 105,
     height: 105,
+    borderRadius: 10
     }
 });

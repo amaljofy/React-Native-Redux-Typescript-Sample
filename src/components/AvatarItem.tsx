@@ -19,7 +19,7 @@ export class AvatarItem extends Component<Props, {}> {
     return (
       <View {...this.props} style={styles.itemContainer}>
         <ImageBackground
-          source={{ uri: `${avatar}.jpg` }}
+          source={{ uri: `${avatar}` }}
           style={styles.avatarStyle}
         >
           <Text style={styles.titleStyle}>{title}</Text>

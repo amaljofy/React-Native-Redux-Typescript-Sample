@@ -45,7 +45,7 @@ class Employee_Screen extends Component<Props, State> {
           />
           <FlatList
           data={employeeData}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.title}
           renderItem={({ item }: itemProp) => {
             return (
                 <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.image.loc.__text} ></ListItem>

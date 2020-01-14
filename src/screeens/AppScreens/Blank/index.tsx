@@ -30,7 +30,7 @@ class Blank extends Component<Props, State> {
           backButtonPress={() => navigation.goBack()}
         />
       <Text style={styles.textStyle}>Hello, This is blank screen!</Text>
-      <AvatarItem avatar={responseJson.download_url} title={responseJson.author}></AvatarItem>
+      <AvatarItem avatar={responseJson.download_url+".jpg"} title={responseJson.author}></AvatarItem>
     </View>
     );
   }
