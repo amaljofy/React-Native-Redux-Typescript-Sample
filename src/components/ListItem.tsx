@@ -4,24 +4,30 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
-  TouchableOpacityProps
+  TouchableOpacityProps,
+  ImageBackground
 } from "react-native";
 import { colors } from "../constants";
 
 interface Props extends TouchableOpacityProps {
   title: string;
   age: string;
+  avatar: string;
 }
 
 export class  ListItem extends Component<Props, {}> {
   render() {
-    const { title,age } = this.props;
+    const { title,age,avatar } = this.props;
     return (
       <TouchableOpacity {...this.props} style={styles.itemContainer}>
-        
         <View style={styles.singleItem}>
           <Text style={styles.titleStyle}>{title}</Text>
           <Text style={styles.ageStyle}>{age}</Text>
+        </View>
+        <View>
+        <ImageBackground
+            source={{ uri: `${avatar}` }} style={styles.imageStyle}>
+          </ImageBackground>
         </View>
       </TouchableOpacity>
     );
@@ -31,7 +37,8 @@ export class  ListItem extends Component<Props, {}> {
 const styles = StyleSheet.create({
   itemContainer: {
     flexDirection: "row",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: colors.containerBg,
     borderBottomWidth: 1,
     borderBottomColor: colors.borderColor,
@@ -41,15 +48,13 @@ const styles = StyleSheet.create({
   singleItem: {
     flex: 1, 
     flexDirection: 'column', 
-    justifyContent: 'center',
     borderRadius: 10,
     alignItems: 'flex-start', 
-    height: 80, 
-    backgroundColor: colors.niceRed
+    height: 110
   },
   titleStyle: {
-    fontSize: 16,
-    fontWeight: "500",
+    fontSize: 12,
+    fontWeight: "700",
     paddingLeft: 12,
     paddingRight: 12,
     paddingTop: 8,
@@ -62,5 +67,9 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     paddingTop: 8,
     paddingBottom: 8
-  }
+  },
+  imageStyle: {
+    width: 105,
+    height: 105,
+    }
 });

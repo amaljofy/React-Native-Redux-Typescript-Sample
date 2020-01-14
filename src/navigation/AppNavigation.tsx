@@ -57,9 +57,9 @@ const MainTabs = createBottomTabNavigator({
     },
   },
   Discover: {
-    screen: Web_Service,
+    screen: Employee_Screen,
     navigationOptions: {
-      tabBarLabel: 'Discover',
+      tabBarLabel: 'Daily Caller',
       tabBarIcon: taxiIcon
     },
   },

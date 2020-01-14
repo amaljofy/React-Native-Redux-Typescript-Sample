@@ -35,24 +35,23 @@ class Employee_Screen extends Component<Props, State> {
   }
 
   render() {
-    const { employeeData } = this.props;
+    const {navigation, employeeData } = this.props;
 
     return (
       <View style={styles.container}>
           <Header
-          title="Employee List"
+          title="News List"
+          leftButtonPress={() => navigation.openDrawer()}
           />
           <FlatList
           data={employeeData}
           keyExtractor={item => item.id}
           renderItem={({ item }: itemProp) => {
             return (
-                <ListItem  title={item.employee_name} age={item.employee_age}></ListItem>
+                <ListItem  title={item.title} age={item.description} avatar={item.image.loc.__text} ></ListItem>
             );
           }}
         />
-
-      <Text>Hello, This is Employee List!</Text>
     </View>
     );
   }
@@ -60,7 +59,7 @@ class Employee_Screen extends Component<Props, State> {
 
 
 const mapStateToProps = (state: any) => ({
-  employeeData: state.data1
+  employeeData: state.data1.item
 });
 
 function bindToAction(dispatch: any) {
