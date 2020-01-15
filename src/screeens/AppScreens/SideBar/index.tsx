@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Image, Text } from "react-native";
 import { NavigationScreenProp, NavigationState } from "react-navigation";
 import { colors } from "../../../constants";
 import { ListItem } from "../../../components/ListItem";
+import styles from "./styles";
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState>;
@@ -13,21 +14,11 @@ class SideBar extends Component<Props, {}> {
     const { navigation } = this.props;
     return (
       <View style={styles.container}>
-        {/* <ListItem title="Home" onPress={() => navigation.navigate("Home")} />
-        <ListItem
-          title="Blank Page"
-          onPress={() => navigation.navigate("Blank")}
-        /> */}
+         <Image source={require('../../../../images/img1.png')} style={styles.profileImage}></Image>
+         <Text style={styles.textStyle}>Amal Jofy</Text>
+
       </View>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.accent
-  }
-});
-
 export default SideBar;

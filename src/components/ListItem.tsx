@@ -21,7 +21,7 @@ export class  ListItem extends Component<Props, {}> {
     return (
       <TouchableOpacity {...this.props} style={styles.itemContainer}>
         <View style={styles.singleItem}>
-          <Text style={styles.titleStyle}>{title}</Text>
+          <Text numberOfLines={3} ellipsizeMode='tail' style={styles.titleStyle}>{title}</Text>
           <Text style={styles.ageStyle}>{age}</Text>
         </View>
         <View>
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     paddingTop: 8,
     paddingBottom: 8
-  },
+    },
   ageStyle: {
     fontSize: 10,
     fontWeight: "100",

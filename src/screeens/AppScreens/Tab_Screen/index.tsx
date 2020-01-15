@@ -97,7 +97,7 @@ const mapStateToProps = (state: any) => ({
 function bindToAction(dispatch: any) {
   return {
     fetchImageData: (page?: number, limit?: number) =>
-    dispatch(fetchImageData(page, limit)),
+      dispatch(fetchImageData(page, limit)),
     fetchMoreImageData: (page?: number, limit?: number) =>
       dispatch(fetchMoreImageData(page, limit))
   };

@@ -42,6 +42,9 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontSize: 20,
     fontWeight: "600",
+    flexDirection: "row",
+    justifyContent: 'center',
+    alignItems: 'center',
     color: colors.containerBg
   },
   avatarStyle: {

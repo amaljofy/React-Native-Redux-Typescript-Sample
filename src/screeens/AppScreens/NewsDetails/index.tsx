@@ -1,9 +1,10 @@
 import React, { Component } from "react";
-import { View, Text, Alert } from "react-native";
+import { View, Image, Alert } from "react-native";
 import { Header } from "../../../components";
 import { NavigationScreenProp, NavigationState, NavigationActions } from "react-navigation";
 import styles from "./styles";
 import { AvatarItem } from "../../../components";
+import { WebView } from 'react-native-webview';
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState>;
@@ -30,6 +31,7 @@ class NewsDetails extends Component<Props, State> {
           backButtonPress={() => navigation.goBack()}
         />
       <AvatarItem avatar={responseJson.image.loc.__text} title={responseJson.description}></AvatarItem>
+      <WebView source={{ html: responseJson.encoded.__text }} />
     </View>
     );
   }
