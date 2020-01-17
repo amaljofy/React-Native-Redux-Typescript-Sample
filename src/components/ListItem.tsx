@@ -24,7 +24,7 @@ export class  ListItem extends Component<Props, {}> {
         <View style={styles.singleItem}>
           <Text numberOfLines={2} ellipsizeMode='tail' style={styles.titleStyle}>{title}</Text>
           <Text style={styles.ageStyle}>{age}</Text>
-          <Text numberOfLines={1} ellipsizeMode='tail' style={styles.typeStyle}>{type}}</Text>
+          <Text numberOfLines={1} ellipsizeMode='tail' style={styles.typeStyle}>{type}</Text>
         </View>
         <View>
         <Image

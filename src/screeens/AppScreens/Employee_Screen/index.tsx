@@ -37,8 +37,6 @@ class Employee_Screen extends Component<Props, State> {
 
   render() {
     const {navigation, employeeData, loading } = this.props;
-
-    console.log("Hello Loading : "+loading)
     return (
       <View style={styles.container}>
           <Header
@@ -76,6 +74,15 @@ function bindToAction(dispatch: any) {
     dispatch(fetchEmployeeData())
   };
   
+}
+
+export function findCategory(categoryList: any){
+  var categoryType = "General"
+  for (let i = 0; i < categoryList.length; i++) {
+    console.log("Type : "+categoryList[i])
+    if(categoryList[i] instanceof String) return categoryList[i];
+  }
+ return "General";
 }
 
 export default connect(
