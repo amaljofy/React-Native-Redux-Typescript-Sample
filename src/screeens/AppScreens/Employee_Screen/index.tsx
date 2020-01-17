@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { View, Text, FlatList } from "react-native";
+import { View, Text, FlatList, ActivityIndicator } from "react-native";
 import { Header } from "../../../components";
 import { NavigationScreenProp, NavigationState } from "react-navigation";
 import styles from "./styles";
@@ -14,6 +14,7 @@ interface Props {
   navigation: NavigationScreenProp<NavigationState>;
   fetchEmployeeData: () => void;
   employeeData: any;
+  loading: boolean;
 }
 
 interface itemProp {
@@ -35,14 +36,17 @@ class Employee_Screen extends Component<Props, State> {
   }
 
   render() {
-    const {navigation, employeeData } = this.props;
+    const {navigation, employeeData, loading } = this.props;
 
+    console.log("Hello Loading : "+loading)
     return (
       <View style={styles.container}>
           <Header
           title="News List"
           leftButtonPress={() => navigation.openDrawer()}
           />
+          <Text>{loading?"TRUE":"FALSE"}</Text>
+          {loading?(<ActivityIndicator size="large" color="#0000ff" />):null}
           <FlatList
           data={employeeData}
           keyExtractor={item => item.title}
@@ -59,7 +63,8 @@ class Employee_Screen extends Component<Props, State> {
 
 
 const mapStateToProps = (state: any) => ({
-  employeeData: state.data1.item
+  employeeData: state.data1.item,
+  loading: state.loading
 });
 
 function bindToAction(dispatch: any) {
