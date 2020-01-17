@@ -52,7 +52,7 @@ class Employee_Screen extends Component<Props, State> {
                keyExtractor={item => item.title}
                renderItem={({ item }: itemProp) => {
                  return (
-                     <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.image.loc.__text} ></ListItem>
+                     <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.content.thumbnail._url} type={item.creator.__text} ></ListItem>
                    );
                  }}
                />

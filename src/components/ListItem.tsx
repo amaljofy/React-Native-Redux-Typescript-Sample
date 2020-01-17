@@ -13,16 +13,18 @@ interface Props extends TouchableOpacityProps {
   title: string;
   age: string;
   avatar: string;
+  type: string;
 }
 
 export class  ListItem extends Component<Props, {}> {
   render() {
-    const { title,age,avatar } = this.props;
+    const { title,age,avatar,type } = this.props;
     return (
       <TouchableOpacity {...this.props} style={styles.itemContainer}>
         <View style={styles.singleItem}>
-          <Text numberOfLines={3} ellipsizeMode='tail' style={styles.titleStyle}>{title}</Text>
+          <Text numberOfLines={2} ellipsizeMode='tail' style={styles.titleStyle}>{title}</Text>
           <Text style={styles.ageStyle}>{age}</Text>
+          <Text numberOfLines={1} ellipsizeMode='tail' style={styles.typeStyle}>{type}}</Text>
         </View>
         <View>
         <Image
@@ -49,7 +51,7 @@ const styles = StyleSheet.create({
     flex: 1, 
     flexDirection: 'column', 
     borderRadius: 10,
-    alignItems: 'flex-start', 
+    justifyContent: 'center',
     height: 110
   },
   titleStyle: {
@@ -57,20 +59,35 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     paddingLeft: 12,
     paddingRight: 12,
-    paddingTop: 8,
-    paddingBottom: 8
+    paddingTop: 4,
+    paddingBottom: 4
     },
   ageStyle: {
     fontSize: 10,
     fontWeight: "100",
     paddingLeft: 12,
     paddingRight: 12,
-    paddingTop: 8,
-    paddingBottom: 8
+    paddingTop: 4,
+    paddingBottom: 4
+  },
+  typeStyle: {
+    alignSelf:'baseline',
+    fontSize: 12,
+    marginTop: 10,
+    paddingTop: 4,
+    paddingBottom: 4,
+    paddingLeft: 12,
+    paddingRight: 12,
+    borderRadius: 10,
+    textShadowColor: colors.borderColor,
+    marginLeft: 10,
+    marginRight: 10,
+    textAlign: 'center',
+    backgroundColor: colors.niceRed,
   },
   imageStyle: {
     width: 105,
     height: 105,
-    borderRadius: 10
+    borderRadius: 10,
     }
 });
