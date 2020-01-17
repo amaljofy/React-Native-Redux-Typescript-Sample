@@ -45,17 +45,20 @@ class Employee_Screen extends Component<Props, State> {
           title="News List"
           leftButtonPress={() => navigation.openDrawer()}
           />
-          <Text>{loading?"TRUE":"FALSE"}</Text>
-          {loading?(<ActivityIndicator size="large" color="#0000ff" />):null}
-          <FlatList
-          data={employeeData}
-          keyExtractor={item => item.title}
-          renderItem={({ item }: itemProp) => {
-            return (
-                <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.image.loc.__text} ></ListItem>
-            );
-          }}
-        />
+          <View style={styles.contentStyle}>
+            {loading?(<ActivityIndicator style={styles.ActivityIndicatorStyle} size="large" color="#0000ff" />):(
+               <FlatList style={styles.contentStyle}
+               data={employeeData}
+               keyExtractor={item => item.title}
+               renderItem={({ item }: itemProp) => {
+                 return (
+                     <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.image.loc.__text} ></ListItem>
+                   );
+                 }}
+               />
+            )}
+          </View>
+          
     </View>
     );
   }
