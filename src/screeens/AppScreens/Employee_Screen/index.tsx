@@ -9,6 +9,7 @@ import { ListItem } from "../../../components";
 import {
   fetchEmployeeData
 } from "../../../redux/actions/fetch";
+import { type } from "os";
 
 interface Props {
   navigation: NavigationScreenProp<NavigationState>;
@@ -50,7 +51,7 @@ class Employee_Screen extends Component<Props, State> {
                keyExtractor={item => item.title}
                renderItem={({ item }: itemProp) => {
                  return (
-                     <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.content.thumbnail._url} type={item.creator.__text} ></ListItem>
+                     <ListItem  onPress={ () => navigation.navigate('NewsDetails',{dataJSON:item})} title={item.title} age={item.description} avatar={item.content.thumbnail._url} type={findCategory(item.category)} ></ListItem>
                    );
                  }}
                />
@@ -75,14 +76,24 @@ function bindToAction(dispatch: any) {
   };
   
 }
+export type CategoryObj = {
+  _domain: string,
+  __text: string
+}
 
 export function findCategory(categoryList: any){
   var categoryType = "General"
   for (let i = 0; i < categoryList.length; i++) {
-    console.log("Type : "+categoryList[i])
-    if(categoryList[i] instanceof String) return categoryList[i];
+    // if ( categoryList[i] as CategoryObj) {
+    //   categoryType = categoryList[i]._domain;
+    //   break;
+    // }
+    if (typeof categoryList[i] === 'string') {
+      categoryType = categoryList[i];
+      break;
+    }
   }
- return "General";
+ return categoryType;
 }
 
 export default connect(

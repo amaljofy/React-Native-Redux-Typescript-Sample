@@ -71,6 +71,7 @@ const styles = StyleSheet.create({
     paddingBottom: 4
   },
   typeStyle: {
+    overflow: 'hidden',
     alignSelf:'baseline',
     fontSize: 12,
     marginTop: 10,
