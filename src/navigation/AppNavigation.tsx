@@ -18,6 +18,7 @@ import Screen_Two from "../screeens/AppScreens/Screen_Two";
 import Web_Service from "../screeens/AppScreens/Web_Service";
 import Tab_Screen from "../screeens/AppScreens/Tab_Screen";
 import Employee_Screen from "../screeens/AppScreens/Employee_Screen";
+import Chat_Screen from "../screeens/AppScreens/Chat_Screen";
 import AuthLoading from "../screeens/AuthLoading";
 import AuthScreen from "../screeens/AuthScreens/Login";
 import SideBar from "../screeens/AppScreens/SideBar";
@@ -61,6 +62,13 @@ const MainTabs = createBottomTabNavigator({
     screen: Employee_Screen,
     navigationOptions: {
       tabBarLabel: 'Daily Caller',
+      tabBarIcon: taxiIcon
+    },
+  },
+  Chat_Screen: {
+    screen: Chat_Screen,
+    navigationOptions: {
+      tabBarLabel: 'Chat Screen',
       tabBarIcon: taxiIcon
     },
   },
