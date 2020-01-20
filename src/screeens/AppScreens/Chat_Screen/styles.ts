@@ -22,11 +22,11 @@ const styles = StyleSheet.create({
   },
   chatInputStyle:{
     marginLeft:16,
-    width:250,
+    width:'70%',
   },
   sendButtonStyle:{
-    backgroundColor: colors.niceRed,
     marginRight:16,
+    width:'20%',
     position: 'absolute',
     right: 0,
   }
