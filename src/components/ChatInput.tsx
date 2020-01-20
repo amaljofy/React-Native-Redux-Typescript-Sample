@@ -18,7 +18,7 @@ export class ChatInput extends Component<Props, {}> {
   render() {
     const { text } = this.props;
     return (
-        <View {...this.props} style={styles.itemContainer}> 
+        <View {...this.props}> 
             <TextInput  placeholder={text} placeholderTextColor="#202020" style={styles.chatInputStyle}></TextInput>
         </View>
     );
@@ -26,15 +26,12 @@ export class ChatInput extends Component<Props, {}> {
 }
 
 const styles = StyleSheet.create({
-  itemContainer: {
-    marginLeft: 16,
-    marginRight: 16,
-    marginTop: 10,
-    marginBottom: 10
-  },
+
   chatInputStyle: { 
     width: '100%',  
     height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
     backgroundColor: colors.niceRed,
     borderRadius: 10,
     borderWidth: 1,

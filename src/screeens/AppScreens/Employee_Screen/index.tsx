@@ -44,7 +44,6 @@ class Employee_Screen extends Component<Props, State> {
           title="News List"
           leftButtonPress={() => navigation.openDrawer()}
           />
-          {/* <ChatItemLeft title={"Amal Jofy Kanjiramkunnel House Vazhakulam Po Muvattupuzha"}></ChatItemLeft> */}
           <View style={styles.contentStyle}>
             {loading?(<ActivityIndicator style={styles.ActivityIndicatorStyle} size="large" color="#0000ff" />):(
                <FlatList style={styles.contentStyle}

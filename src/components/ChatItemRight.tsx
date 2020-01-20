@@ -47,6 +47,7 @@ const styles = StyleSheet.create({
     paddingLeft: 12,
     paddingRight: 12,
     borderRadius: 10,
+    color: colors.containerBg,
     textShadowColor: colors.borderColor,
     marginLeft: 10,
     marginRight: 10,
